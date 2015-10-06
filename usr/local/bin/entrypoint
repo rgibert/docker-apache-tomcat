@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+CATALINA_BASE="/usr/local/share/apache-tomcat"
+CATALINA_HOME="/var/lib/apache-tomcat"
+
+if [[ "${1}" == 'tomcat' ]]; then
+    if [[ -n ${HTTPS_ENABLE} ]]; then
+       echo "Not completed yet"
+    fi
+    
+    exec ${CATALINA_HOME}/bin/startup.sh
+fi
+
+exec "$@"
+
